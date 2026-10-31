@@ -26,7 +26,7 @@ const HeroSection = () => {
     <section id="top" className="hero-section section-shell">
       <motion.div className="hero-section__inner content-width" initial="hidden" animate="visible">
         <motion.div className="hero-title-wrap" variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { delay: .15, duration: .75, ease: "easeOut" } } }}>
-          <h1 className="hero-title hero-heading">Hi, I&apos;m <em>Soni</em></h1>
+          <h1 className="hero-title hero-heading"><span className="hero-title__intro">Hi, I&apos;m</span> <em>Soni</em></h1>
         </motion.div>
         <motion.div className="hero-portrait" ref={portraitRef} style={reduceMotion ? undefined : { rotateX, rotateY }} onPointerMove={handleMove} onPointerLeave={resetMove} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { delay: .6, duration: .85, ease: "easeOut" } } }}>
           <div className="hero-portrait__halo" aria-hidden="true" />
