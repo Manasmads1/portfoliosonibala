@@ -1,10 +1,10 @@
 # Soni Bala — Portfolio
 
-A responsive single-page portfolio for Soni Bala, built from the supplied profile archive and shaped into an editorial, 3D-inspired experience. The visual system pairs warm paper surfaces with ink-green sections, coral signal accents, a dimensional portrait stage, and compact mono labels for a career-dossier feel.
+A responsive single-page portfolio for Soni Bala, rebuilt in the attached 3D creator phase: dark `#0C0C0C` canvas, Kanit typography, oversized gradient headings, a centered portrait treatment, scroll-responsive marquee bands, character-by-character About copy, stacked animated Work experience cards, compact education cards, and direct contact actions.
 
 ## Included
 
-The current version includes Soni Bala’s supplied biography, profile photo, professional positioning, complete experience history, education, skills, languages, contact details, responsive navigation, reduced-motion support, and direct email/phone actions. It also includes a clearly labeled certificate and selected-work slot in the capabilities section.
+The site preserves the supplied Soni Bala profile photo, biography, professional positioning, complete IRAAH Jewels / Bharti AXA / Wheelseye experience history, education, skills, languages, profile facts, and contact details. The Work experience section uses sticky title cards with scroll scaling and staggered responsibility reveals rather than an achievements counter section.
 
 ## Run locally
 
@@ -17,4 +17,4 @@ The production build is generated with `pnpm build`, and linting runs with `pnpm
 
 ## Assets still needed from Soni
 
-The base site is ready for the next content pass. The only missing personal assets are the certificates or awards to display, any project or work imagery Soni wants featured, an optional downloadable CV/resume PDF, and optional social/profile URLs such as LinkedIn. The placeholder card is intentionally retained until those files arrive.
+The base is ready for the next content pass. The remaining optional personal assets are certificates or awards, selected project/work imagery, a downloadable CV or resume PDF, and professional profile URLs such as LinkedIn. The current capability phase intentionally keeps a text-led presentation until those files arrive.

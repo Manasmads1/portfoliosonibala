@@ -1,38 +1,40 @@
-import { motion } from "framer-motion";
-import { ArrowUpRight, Check } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { experiences } from "@/data/profile";
 
-const reveal = { hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
+type Experience = (typeof experiences)[number];
+
+const ExperienceCard = ({ experience, index, total }: { experience: Experience; index: number; total: number }) => {
+  const cardRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: cardRef, offset: ["start end", "end start"] });
+  const targetScale = 1 - (total - 1 - index) * 0.035;
+  const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale]);
+
+  return (
+    <div className="experience-card-wrap">
+      <motion.article ref={cardRef} className="experience-card" style={{ scale }}>
+        <div className="experience-card__top">
+          <span className="experience-card__index">{experience.index}</span>
+          <div className="experience-card__meta"><span>{experience.period}</span><strong>{experience.role}</strong><span className="experience-card__company">{experience.company} · {experience.location}</span></div>
+          {experience.current && <span className="current-tag"><span className="status-pulse" aria-hidden="true" /> Current</span>}
+        </div>
+        <div className="experience-card__body">
+          <motion.h3 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .6 }}>{experience.role}</motion.h3>
+          <div>
+            <p className="experience-card__summary">{experience.summary}</p>
+            <ul>{experience.bullets.map((bullet, bulletIndex) => <motion.li key={bullet} initial={{ opacity: 0, x: 15 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: .2 }} transition={{ delay: bulletIndex * .06, duration: .45 }}>{bullet}</motion.li>)}</ul>
+          </div>
+        </div>
+        <div className="experience-card__footer"><span>Work experience / {experience.index}</span><span>Scroll to next role ↓</span></div>
+      </motion.article>
+    </div>
+  );
+};
 
 const ExperienceSection = () => (
-  <section id="experience" className="section-shell section-ink">
-    <div className="content-width">
-      <div className="section-heading section-heading--split section-heading--light">
-        <motion.div variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
-          <p className="eyebrow"><span>03</span> Career trajectory</p>
-          <h2>Proof lives<br /><em>in the pattern.</em></h2>
-        </motion.div>
-        <motion.p className="section-intro" variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.25 }}>
-          Three industries. One consistent point of view: listen closely, build trust early, and keep the outcome visible for everyone involved.
-        </motion.p>
-      </div>
-
-      <div className="experience-list">
-        {experiences.map((experience) => (
-          <motion.article className="experience-card" key={experience.index} variants={reveal} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.12 }}>
-            <div className="experience-card__index">{experience.index}</div>
-            <div className="experience-card__main">
-              <div className="experience-card__topline"><span>{experience.period}</span>{experience.current && <span className="current-tag"><span className="status-pulse" aria-hidden="true" /> Current role</span>}</div>
-              <h3>{experience.role}</h3>
-              <p className="experience-card__company">{experience.company} <span>·</span> {experience.location}</p>
-              <p className="experience-card__summary">{experience.summary}</p>
-              <ul>{experience.bullets.map((bullet) => <li key={bullet}><Check size={14} aria-hidden="true" /> {bullet}</li>)}</ul>
-            </div>
-            <a className="circle-link" href="#contact" aria-label={`Discuss ${experience.role} experience`}><ArrowUpRight size={18} aria-hidden="true" /></a>
-          </motion.article>
-        ))}
-      </div>
-    </div>
+  <section id="experience" className="experience-section section-shell">
+    <motion.h2 className="section-title hero-heading" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7 }}>Work<br /><em>experience</em></motion.h2>
+    {experiences.map((experience, index) => <ExperienceCard key={experience.index} experience={experience} index={index} total={experiences.length} />)}
   </section>
 );
 
