@@ -12,7 +12,7 @@ const ExperienceCard = ({ experience, index, total }: { experience: Experience; 
 
   return (
     <div className="experience-card-wrap">
-      <motion.article ref={cardRef} className="experience-card" style={{ scale }}>
+      <motion.article data-cursor-node ref={cardRef} className="experience-card" style={{ scale }}>
         <div className="experience-card__top">
           <span className="experience-card__index">{experience.index}</span>
           <div className="experience-card__meta"><span>{experience.period}</span><strong>{experience.role}</strong><span className="experience-card__company">{experience.company} · {experience.location}</span></div>

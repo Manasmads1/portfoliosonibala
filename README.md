@@ -1,10 +1,12 @@
 # Soni Bala — Portfolio
 
-A responsive single-page portfolio for Soni Bala, rebuilt in the attached 3D creator phase: dark `#0C0C0C` canvas, Kanit typography, oversized gradient headings, a centered portrait treatment, scroll-responsive marquee bands, character-by-character About copy, stacked animated Work experience cards, compact education cards, and direct contact actions.
+A responsive single-page portfolio for Soni Bala, built in the supplied dark 3D creator direction with Kanit display typography, readable Manrope body copy, scroll-responsive marquee bands, animated Work experience cards, and direct contact actions.
 
-## Included
+## Current content
 
-The site preserves the supplied Soni Bala profile photo, biography, professional positioning, complete IRAAH Jewels / Bharti AXA / Wheelseye experience history, education, skills, languages, profile facts, and contact details. The Work experience section uses sticky title cards with scroll scaling and staggered responsibility reveals rather than an achievements counter section.
+The profile is aligned to `RESUME_SONIBALA.pdf`: six years of experience across Wheelseye Pvt. Ltd., Bharti AXA Life Insurance Company, and Policy Master Pvt. Ltd.; the resume summary and skills; the three verified roles and responsibilities; education; Hindi and English; and the resume phone, email, and Gurugram location.
+
+Soni’s supplied portrait has been removed from the hero and placed in a contained circular About-section frame so it remains visible without obscuring the headline or supporting copy. Desktop users also get a lightweight ring cursor with a trailing orbit and color-reactive proximity glow; touch devices and reduced-motion preferences automatically disable it.
 
 ## Run locally
 
@@ -15,6 +17,6 @@ pnpm dev
 
 The production build is generated with `pnpm build`, and linting runs with `pnpm lint`.
 
-## Assets still needed from Soni
+## Remaining optional assets
 
-The base is ready for the next content pass. The remaining optional personal assets are certificates or awards, selected project/work imagery, a downloadable CV or resume PDF, and professional profile URLs such as LinkedIn. The current capability phase intentionally keeps a text-led presentation until those files arrive.
+Certificates, selected project/work imagery, a downloadable CV, and professional profile URLs can be added later without changing the core layout.

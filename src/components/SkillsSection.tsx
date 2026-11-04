@@ -11,10 +11,10 @@ const capabilities = [
 
 const SkillsSection = () => (
   <section id="capabilities" className="capabilities-section section-shell">
-    <motion.h2 className="section-title" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7 }}>Capabilities</motion.h2>
+    <motion.h2 data-cursor-node className="section-title" initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .7 }}>Capabilities</motion.h2>
     <div className="capabilities-list">
       {capabilities.map((capability, index) => (
-        <motion.article className="capability-item" key={capability.name} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "50px", amount: 0 }} transition={{ delay: index * .1, duration: .7 }}>
+        <motion.article data-cursor-node className="capability-item" key={capability.name} initial={{ opacity: 0, y: 25 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "50px", amount: 0 }} transition={{ delay: index * .1, duration: .7 }}>
           <span className="capability-item__number">0{index + 1}</span>
           <div><h3>{capability.name}</h3><p>{capability.description}</p></div>
         </motion.article>
